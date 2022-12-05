@@ -8,6 +8,7 @@ public class ttest {
 		int k = 0;
 		int p = 0;
 		int q = 0;
+		int e = 0;
 	}
 
 }
