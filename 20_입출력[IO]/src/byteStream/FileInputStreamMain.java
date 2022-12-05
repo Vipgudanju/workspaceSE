@@ -38,7 +38,7 @@ public class FileInputStreamMain {
 		}
 		
 		fis.close();
-		System.out.println("FileInputStream.read() <------ fileOut.dat:" + byteCount + "바이트 있음");
+		System.out.println("FileInputStream.read()z <------ fileOut.dat:" + byteCount + "바이트 있음");
 		
 		
 
