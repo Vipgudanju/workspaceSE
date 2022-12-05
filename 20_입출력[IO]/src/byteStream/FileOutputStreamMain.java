@@ -26,6 +26,7 @@ public class FileOutputStreamMain {
 		fos.write(66);
 		fos.write(0b00000000000000000000000001000011);
 		fos.write(0b01111111111111111111111111111111);
+		fos.write(0b01111111111111111111111111111111);
 		
 		for(int i = 0; i < 256; i++) {
 			fos.write(i);
