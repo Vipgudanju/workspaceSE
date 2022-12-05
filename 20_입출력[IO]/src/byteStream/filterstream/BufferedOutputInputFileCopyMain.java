@@ -14,7 +14,7 @@ public class BufferedOutputInputFileCopyMain {
 						new FileInputStream("D2Coding-Ver1.3.2-20180524.zip"));
 		BufferedOutputStream bos=
 				new BufferedOutputStream(
-						new FileOutputStream("D2Coding-Ver1.3.2-201805242.zip"));
+						new FileOutputStream("D2Coding-Ver1.3.2-20180524copy.zip"));
 
 		int byteCount=0;
 		int starCount=0;

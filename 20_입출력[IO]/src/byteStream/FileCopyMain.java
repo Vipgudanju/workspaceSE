@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class FileCopyMain {
-	// 파일 복사 해결해보기
+	
 	public static void main(String[] args) throws Exception{
 		
 		//String fileName = "game_back.jpg";

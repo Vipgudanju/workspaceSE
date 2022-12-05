@@ -31,9 +31,8 @@ public class DataOutputInputStreamMain {
 		System.out.println("boolean:" + dis.readBoolean());
 		System.out.println("char:" + dis.readChar());
 		System.out.println("String:" + dis.readUTF());
-		
-		
 
+		
 	}
 
 }
