@@ -20,12 +20,12 @@ public class BufferedOutputInputFileCopyMain {
 		int starCount=0;
 		while(true) {
 			int readByte = bis.read();
-			if(readByte==-1)break;
+			if(readByte == -1)break;
 			byteCount++;
 			if(byteCount%1024==0) {
 				System.out.print("★");
 				starCount++;
-				if(starCount%20==0) {
+				if(starCount%20 == 0) {
 					System.out.println();
 				}
 			}
