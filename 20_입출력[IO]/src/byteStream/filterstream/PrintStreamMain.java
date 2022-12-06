@@ -25,11 +25,12 @@ public class PrintStreamMain {
 		consolePrintOut.println(c);
 		filePrintOut.println(c);
 		System.out.println(o.toString());
-		filePrintOut.print(o);
+		filePrintOut.println(o);
 		System.out.println(isMarried);
-		filePrintOut.print(isMarried);
-		//System.out.print();
-		// 마저 작성하기
+		filePrintOut.println(isMarried);
+		System.out
+		.println("------PrintStream.println()-->console,printStream.txt");
+		filePrintOut.println("------PrintStream.println()-->console,printStream.txt");
 		
 		
 	}
