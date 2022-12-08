@@ -7,7 +7,7 @@
 public class Account implements Comparable<Account>{
 	
 	/*
-	 * 1. 속성[멥버필드(변수)]
+	 * 1. 속성[멤버필드(변수)]
 	 */
 	
 	public int no;			// 계좌번호
