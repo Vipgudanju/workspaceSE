@@ -17,6 +17,10 @@ public class Car {
 		this.engine =  engine;
 	}
 	
+	public void print() {
+		System.out.print(this.no + "\t"+ this.model +"\t");
+		//this.engine.print();
+	}
 	
 	
 	
