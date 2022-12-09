@@ -4,12 +4,13 @@ package Event;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-/*
 /*
 1. 이벤트 소스 결정 :하나의 윈도우에는 여러 개의 컴포넌트가 존재할 수 있으므로
 					 실제로 이벤트가 발생되면 처리할 컴포넌트를 결정한다. 
@@ -23,13 +24,12 @@ import javax.swing.JPanel;
 				addXXListener()함수를 통해 연결을 시켜준다.  
 				XX부분은 해당 컴포넌트에 붙일 수 있는 리스너 이름을 의미한다.
 	 
-	  ex>버튼에서발생하는 ActionEvent를 처리할 Handler(ActionListener)객체생성
+	  ex>버튼에서발생하는 ActionEvent를 처리할 Handler(ActionListener구현)객체생성
 	  
 	  예를 들어 버튼에 ActionEvent을 처리하기 위하여 
 	  버튼에다가 addActionListener를 붙이는 경우이다.
-	  ex> 버튼객체.addActionListener(핸들러객체);
+	  ex> 버튼객체.addActionListener(ActionListener구현한핸들러객체);
 */
-
 
 public class ActionEventJFrame extends JFrame{
 	public JPanel contentPane;
@@ -51,20 +51,57 @@ public class ActionEventJFrame extends JFrame{
 		westBtn=new JButton("이벤트쏘스[WEST]");
 		
 		/*********이벤트핸들러객체등록*********/
-		northBtn.addActionListener(
-				new NorthButtonActionEventHandler(this));
+		/** 1. 외부클래스 **/
+		NorthButtonActionEventHandler handler=
+				new NorthButtonActionEventHandler(this);
+		northBtn.addActionListener(handler);
+		/** 2.멤버내부 클래스 **/
+		southBtn.addActionListener(new SouthButtonActionEventHandler());
+		/* 3.익명클래스 */
+		ActionListener westButtonHandler = new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("west button click!!!");
+			}
+		};
+		westBtn.addActionListener(westButtonHandler);
+		
+		eastBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("east button click!!!");
+			}
+		});
+		
 		
 		contentPane.add(northBtn,BorderLayout.NORTH);
 		contentPane.add(southBtn,BorderLayout.SOUTH);
-		/*
+		
 		contentPane.add(eastBtn,BorderLayout.EAST);
 		contentPane.add(westBtn,BorderLayout.WEST);
-		*/
-		this.setSize(300, 400);
+		
+		this.setSize(400, 400);
 		this.setVisible(true);
 	}
+	/*************member inner class****************/
+	public class SouthButtonActionEventHandler 
+			implements ActionListener{
+		int count;
+		@Override
+		public void actionPerformed(ActionEvent e) {
+				count++;
+				
+				setTitle("south button click["+count+"]");
+				int r=(int)(Math.random()*256);
+				int g=(int)(Math.random()*256);
+				int b=(int)(Math.random()*256);
+				contentPane.setBackground(new Color(r, g, 255));
+				
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		new ActionEventJFrame();
 	}
 	
 }
+
