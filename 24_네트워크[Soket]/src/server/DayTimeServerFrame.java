@@ -1,3 +1,5 @@
+// 2022-12-12
+
 package server;
 
 import java.awt.BorderLayout;
@@ -63,7 +65,8 @@ public class DayTimeServerFrame extends JFrame {
 
 	}// 생성자끝
 	public void displayLog(String log) {
-		displayTA.append(log + "\n");
+		scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());
+		displayTA.append(log+"\n");
 	}
 
 	/*********************
