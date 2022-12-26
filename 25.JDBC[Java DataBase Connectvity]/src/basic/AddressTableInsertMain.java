@@ -15,7 +15,7 @@ public class AddressTableInsertMain {
 		String user="scott";
 		String password="tiger";
 		
-		String insertSQL= "insert into address values(address_no_SEQ.nextval, '장원영', '123-4567', '경기도 구리시')";
+		String insertSQL= "insert into address values(address_no_SEQ.nextval, '허윤진', '123-4565', '경기도 남양주시')";
 				
 		/*
 		 1.Driver class loading
@@ -29,6 +29,8 @@ public class AddressTableInsertMain {
 		Connection con = DriverManager.getConnection(url, user, password);
 		Statement stmt = con.createStatement();
 		int rowCount = stmt.executeUpdate(insertSQL);
+		
+		
 		System.out.println(">>insert row count:"+rowCount+" 행 insert");
 		stmt.close();
 		con.close();
