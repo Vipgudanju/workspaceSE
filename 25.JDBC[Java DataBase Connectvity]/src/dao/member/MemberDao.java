@@ -1,8 +1,10 @@
 package dao.member;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /*
@@ -27,7 +29,6 @@ public class MemberDao {
 														+newMember.getM_age()+"','"
 														+newMember.getM_married()+"','"
 														+newMember.getM_reDate()+"')";
-														
 		
 		
 	}
