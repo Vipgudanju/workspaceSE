@@ -17,8 +17,19 @@ public class MemberDao {
 
 	}
 
-	public void insert() throws Exception {
-
+	public void insert(Member newMember) throws Exception {
+		
+		String insertSQL = "insert into address values(address_no_seq.nextval,'"
+														+newMember.getM_id()+"','"
+														+newMember.getM_password()+"','"
+														+newMember.getM_name()+"','"
+														+newMember.getM_address()+"','"
+														+newMember.getM_age()+"','"
+														+newMember.getM_married()+"','"
+														+newMember.getM_reDate()+"')";
+														
+		
+		
 	}
 
 	public void update() throws Exception {
