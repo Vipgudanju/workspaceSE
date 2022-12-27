@@ -21,14 +21,108 @@ import java.util.Date;
 
 public class Member {
 	private String m_id;
-	
+	private int m_password;
+	private String m_name;
+	private String m_address;
+	private int m_age;
+	private boolean m_married;
 	
 	private Date m_reDate;
-	
 	
 	
 	public Member() {
 		
 	}
+
+	public Member(String m_id, int m_password, String m_name, String m_address, int m_age, boolean m_married, Date m_reDate) {
+		super();
+		this.m_id = m_id;
+		this.m_password = m_password;
+		this.m_name = m_name;
+		this.m_address = m_address;
+		this.m_age = m_age;
+		this.m_married = m_married;
+		this.m_reDate = m_reDate;
+	}
+	
+	
+
+	public String getM_id() {
+		return m_id;
+	}
+
+
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
+
+
+	public int getM_password() {
+		return m_password;
+	}
+
+
+	public void setM_password(int m_password) {
+		this.m_password = m_password;
+	}
+
+
+	public String getM_name() {
+		return m_name;
+	}
+
+
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
+
+
+	public String getM_address() {
+		return m_address;
+	}
+
+
+	public void setM_address(String m_address) {
+		this.m_address = m_address;
+	}
+
+
+	public int getM_age() {
+		return m_age;
+	}
+
+
+	public void setM_age(int m_age) {
+		this.m_age = m_age;
+	}
+
+
+	public boolean isM_married() {
+		return m_married;
+	}
+
+
+	public void setM_married(boolean m_married) {
+		this.m_married = m_married;
+	}
+
+
+	public Date getM_reDate() {
+		return m_reDate;
+	}
+
+
+	public void setM_reDate(Date m_reDate) {
+		this.m_reDate = m_reDate;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Member [m_id=" + m_id + ", m_password=" + m_password + ", m_name=" + m_name + ", m_address=" + m_address
+				+ ", m_age=" + m_age + ", m_married=" + m_married + ", m_reDate=" + m_reDate + "]";
+	}
+	
+	
 	
 }
