@@ -11,7 +11,7 @@ insert into address values(address_no_SEQ.nextval, '오하영', '123-4565', '경
 insert into address values(address_no_SEQ.nextval, '김남주', '123-4565', '경기도 시흥시');
 
 -- update(pk update)
-update address set name = '박규리', phone = '123-4567', address = '서울시 강동구' where no = 6;
+update address set name = '강지영', phone = '123-4567', address = '서울시 강동구' where no = 6;
 
 -- delete(pk delete)
 delete address where no = 1;
