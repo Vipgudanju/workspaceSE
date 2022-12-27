@@ -25,9 +25,9 @@ public class MemberDao {
 
 	}
 
-	public int delete() throws Exception {
+	public void delete() throws Exception {
 
-		return 0;
+		
 	}
 
 	public void findByPrimaryKey() throws Exception {

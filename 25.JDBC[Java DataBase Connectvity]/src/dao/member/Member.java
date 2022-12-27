@@ -17,8 +17,18 @@ M_MARRIED           CHAR(1)
 M_REGDATE           DATE     
  */
 
+import java.util.Date;
 
 public class Member {
+	private String m_id;
 	
+	
+	private Date m_reDate;
+	
+	
+	
+	public Member() {
+		
+	}
 	
 }

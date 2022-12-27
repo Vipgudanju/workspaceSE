@@ -3,11 +3,11 @@
 --insert
 
 insert into member(m_id,m_password,m_name,m_address,m_age,m_married,m_regdate)
-                values('aaaa','aaaa','김경수','부산시 영도구',37,'F',sysdate);
+                    values('aaaa','aaaa','김경수','부산시 영도구',37,'F',sysdate);
 insert into member(m_id,m_password,m_name,m_address,m_age,m_married,m_regdate)
-                values('bbbb','bbbb','김경우','서울시 도봉구',23,'F',sysdate);
+                    values('bbbb','bbbb','김경우','서울시 도봉구',23,'F',sysdate);
 insert into member(m_id,m_password,m_name,m_address,m_age,m_married,m_regdate)
-                values('cccc','cccc','김경미','서울시  강남구',47,'T',sysdate);
+                    values('cccc','cccc','김경미','서울시  강남구',47,'T',sysdate);
                 
 --update pk
 
