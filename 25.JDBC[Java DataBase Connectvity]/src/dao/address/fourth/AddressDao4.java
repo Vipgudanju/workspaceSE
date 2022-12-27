@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * Dao(Data Access Object) 클래스
@@ -16,7 +18,7 @@ public class AddressDao4 {
 	public AddressDao4() {
 	}
 	
-	public void insert(Address newAddress) throws Exception{
+	public int insert(Address newAddress) throws Exception{
 		/*****************데이타베이스접속정보***********/
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -35,13 +37,13 @@ public class AddressDao4 {
 		Statement stmt = con.createStatement();
 		int rowCount = stmt.executeUpdate(insertSQL);
 		
-		
-		System.out.println(">>insert row count:"+rowCount+" 행 insert");
+		//System.out.println(">>insert row count:"+rowCount+" 행 insert");
 		stmt.close();
 		con.close();
+		return rowCount;
 	}
 	
-	public void update(Address updateAddress) throws Exception{
+	public int update(Address updateAddress) throws Exception{
 		/*****************데이타베이스접속정보***********/
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -57,12 +59,13 @@ public class AddressDao4 {
 		Connection con=DriverManager.getConnection(url,user,password);
 		Statement stmt=con.createStatement();
 		int rowCount=stmt.executeUpdate(updateSQL);
-		System.out.println(">> "+rowCount+" 행 update");
+		//System.out.println(">> "+rowCount+" 행 update");
 		
 		stmt.close();
 		con.close();
+		return rowCount;
 	}
-	public void delete(int no)throws Exception {
+	public int delete(int no)throws Exception {
 		/*****************데이타베이스접속정보***********/
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -75,11 +78,12 @@ public class AddressDao4 {
 		Connection con=DriverManager.getConnection(url,user,password);
 		Statement stmt=con.createStatement();
 		int rowCount=stmt.executeUpdate(deleteSQL);
-		System.out.println(">> "+rowCount+ "행 delete" );
+		//System.out.println(">> "+rowCount+ "행 delete" );
 		stmt.close();
 		con.close();
+		return rowCount;
 	}
-	public void findByPrimaryKey(int no) throws Exception{
+	public Address findByPrimaryKey(int no) throws Exception{
 		/*****************데이타베이스접속정보***********/
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -87,6 +91,8 @@ public class AddressDao4 {
 		String password="tiger";
 		/***********************************************/
 		String selectSQL="select no,name,phone,address from address where no="+no;
+		
+		Address findAddress =  null;
 		
 		Class.forName(driverClass);
 		Connection con=DriverManager.getConnection(url,user,password);
@@ -97,17 +103,18 @@ public class AddressDao4 {
 			String name=rs.getString("name");
 			String phone=rs.getString("phone");
 			String address=rs.getString("address");
-			System.out.println(n+"\t"+name+"\t"+phone+"\t"+address);
+			findAddress = new Address(no, name, phone, address);
 		}else {
-			System.out.println("조건에 만족하는 주소록 존재안함");
+			//System.out.println("조건에 만족하는 주소록 존재안함");
+			findAddress = null;
 		}
 		
 		rs.close();
 		stmt.close();
 		con.close();
-		
+		return findAddress;
 	}
-	public void findAll() throws Exception{
+	public List<Address> findAll() throws Exception{
 		/*****************데이타베이스접속정보***********/
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
@@ -116,30 +123,30 @@ public class AddressDao4 {
 		/***********************************************/
 		String selectSQL="select no,name,phone,address from address";
 		
+		List<Address> addressList = new ArrayList<Address>();
+		
 		Class.forName(driverClass);
 		Connection con=DriverManager.getConnection(url,user,password);
 		Statement stmt=con.createStatement();
-		
 		ResultSet rs=stmt.executeQuery(selectSQL);
-		
-		
-		
 		if(rs.next()) {
-			
 			do{
 				int no=rs.getInt("no");
 				String name=rs.getString("name");
 				String phone=rs.getString("phone");
-				String address=rs.getString("address");
-				System.out.println(no+"\t"+name+"\t"+phone+"\t"+address);
+				String addr=rs.getString("address");
+				Address address = new Address(no, name, phone, addr);
+				addressList.add(address);
 			}while(rs.next());
 		}else {
-			System.out.println("조건에 만족하는 주소록 존재안함");
+			//System.out.println("조건에 만족하는 주소록 존재안함");
+			
 		}
 		
 		rs.close();
 		stmt.close();
 		con.close();
+		return addressList;
 	}
 	
 }
