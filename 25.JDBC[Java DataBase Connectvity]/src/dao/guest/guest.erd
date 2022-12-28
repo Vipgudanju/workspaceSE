@@ -30,8 +30,8 @@
       <targetConnections/>
       <error></error>
       <linkedPath></linkedPath>
-      <tableName>TABLE_1</tableName>
-      <logicalName>Table1</logicalName>
+      <tableName>guest</tableName>
+      <logicalName>guest</logicalName>
       <description></description>
       <columns>
         <net.java.amateras.db.visual.model.ColumnModel>

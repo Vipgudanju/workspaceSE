@@ -1,9 +1,9 @@
-DROP TABLE TABLE_1 CASCADE CONSTRAINTS;
+DROP TABLE guest CASCADE CONSTRAINTS;
 
-CREATE TABLE TABLE_1(
-		guest_no                      		NUMBER(10)		 	NOT NULL,
+CREATE TABLE guest(
+		guest_no                      		NUMBER(10)		 NOT NULL,
 		guest_name                    		VARCHAR2(50)		 NULL ,
-		guest_date                    		DATE		 		NULL ,
+		guest_date                    		DATE		 NULL ,
 		guest_email                   		VARCHAR2(50)		 NULL ,
 		guest_homepage                		VARCHAR2(50)		 NULL ,
 		guest_title                   		VARCHAR2(100)		 NULL ,
@@ -12,5 +12,5 @@ CREATE TABLE TABLE_1(
 
 
 
-ALTER TABLE TABLE_1 ADD CONSTRAINT IDX_TABLE_1_PK PRIMARY KEY (guest_no);
+ALTER TABLE guest ADD CONSTRAINT IDX_guest_PK PRIMARY KEY (guest_no);
 
