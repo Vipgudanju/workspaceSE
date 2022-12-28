@@ -1,10 +1,13 @@
 package dao.member;
+
+import java.sql.Date;
+
 /*
 VO(Value Object),DTO(Data Transfer Object)
 	- member 테이블 1개 row의 데이타의 값을 가지는객체
 	- member 테이블 1개 row의 데이타값을 이동(파라메타,리턴데이타)시키기위한객체 
 	- member 테이블의 컬럼과 동일한수의 멤버변수를가지는객체
-*/
+ */
 /*
 이름         널?       유형            
 ---------- -------- ------------- 
@@ -17,24 +20,23 @@ M_MARRIED           CHAR(1)
 M_REGDATE           DATE     
  */
 
-import java.util.Date;
 
 public class Member {
+
+
 	private String m_id;
-	private int m_password;
+	private String m_password;
 	private String m_name;
 	private String m_address;
 	private int m_age;
-	private char m_married;
-	
-	private Date m_reDate;
-	
-	
+	private String m_married;
+	private Date m_regdate;
+
 	public Member() {
-		
+
 	}
 
-	public Member(String m_id, int m_password, String m_name, String m_address, int m_age, char m_married, Date m_reDate) {
+	public Member(String m_id, String m_password, String m_name, String m_address, int m_age, String m_married) {
 		super();
 		this.m_id = m_id;
 		this.m_password = m_password;
@@ -42,7 +44,20 @@ public class Member {
 		this.m_address = m_address;
 		this.m_age = m_age;
 		this.m_married = m_married;
-		this.m_reDate = m_reDate;
+	}
+
+
+
+	public Member(String m_id, String m_password, String m_name, String m_address, int m_age, String m_married,
+			Date m_regdate) {
+		super();
+		this.m_id = m_id;
+		this.m_password = m_password;
+		this.m_name = m_name;
+		this.m_address = m_address;
+		this.m_age = m_age;
+		this.m_married = m_married;
+		this.m_regdate = m_regdate;
 	}
 
 	public String getM_id() {
@@ -53,11 +68,11 @@ public class Member {
 		this.m_id = m_id;
 	}
 
-	public int getM_password() {
+	public String getM_password() {
 		return m_password;
 	}
 
-	public void setM_password(int m_password) {
+	public void setM_password(String m_password) {
 		this.m_password = m_password;
 	}
 
@@ -85,29 +100,31 @@ public class Member {
 		this.m_age = m_age;
 	}
 
-	public char getM_married() {
+	public String getM_married() {
 		return m_married;
 	}
 
-	public void setM_married(char m_married) {
+	public void setM_married(String m_married) {
 		this.m_married = m_married;
 	}
 
-	public Date getM_reDate() {
-		return m_reDate;
+	public Date getM_regdate() {
+		return m_regdate;
 	}
 
-	public void setM_reDate(Date m_reDate) {
-		this.m_reDate = m_reDate;
+	public void setM_regdate(Date m_regdate) {
+		this.m_regdate = m_regdate;
 	}
 
 	@Override
 	public String toString() {
 		return "Member [m_id=" + m_id + ", m_password=" + m_password + ", m_name=" + m_name + ", m_address=" + m_address
-				+ ", m_age=" + m_age + ", m_married=" + m_married + ", m_reDate=" + m_reDate + "]";
+				+ ", m_age=" + m_age + ", m_married=" + m_married + ", m_regdate=" + m_regdate + "]";
 	}
-	
-	
 
-		
+
+
+
+
+
 }

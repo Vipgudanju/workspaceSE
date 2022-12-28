@@ -9,9 +9,8 @@ import java.sql.Statement;
  * Dao(Data Access Object) 클래스
  *    - address테이블에 CRUD(Create,Read,Update,Delete)작업을하는
  *      단위메쏘드를 가지고있는 클래스
- *    
- * 
  */
+
 public class AddressDao3 {
 	public AddressDao3() {
 	}
