@@ -7,5 +7,28 @@ package dao.guest;
  */
 public class GuestDao {
 	
+	public void insert() throws Exception {
+		
+	}
+	
+	
+	public void update() throws Exception {
+		
+	}
+	
+	
+	public void delete() throws Exception {
+		
+	}
+	
+	
+	public void findByPrimaryKey() throws Exception {
+		
+	}
+	
+	
+	public void findAll() throws Exception {
+		
+	}
 	
 }
