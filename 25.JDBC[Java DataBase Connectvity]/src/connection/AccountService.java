@@ -16,7 +16,7 @@ public class AccountService {
 	 * 모든계좌의 잔고를 balance만큼 갱신
 	 */
 	public void updateBalance(int balance) {
-		
+		boolean exceptionCondition = true;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String updateSql = "update accounta set acc_balance = acc_balance + ? where acc_no = ?";
@@ -48,6 +48,19 @@ public class AccountService {
 			pstmt.setInt(2, acc_no);
 			rowCount = pstmt.executeUpdate();
 			System.out.println(acc_no + "번 계좌" + rowCount + "행 update");
+			
+			/**예외발생***/
+			int rn=(int)(Math.random()*2);
+			if(rn%2==0) {
+				exceptionCondition=true;
+			}else {
+				exceptionCondition=false;
+			}
+			
+			if(exceptionCondition) {
+				throw new Exception("모든계좌잔고갱신예외발생");
+			}
+			
 			
 			/************************ 40000번 계좌 update ***********************/
 			acc_no = 40000;
@@ -88,6 +101,7 @@ public class AccountService {
 			 * 	 - 리소스 해지
 			 */
 			try {
+				pstmt.close();
 				dataSource.close(con);
 			} catch (Exception e) {
 				e.printStackTrace();
