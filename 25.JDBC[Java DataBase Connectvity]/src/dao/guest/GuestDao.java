@@ -42,12 +42,20 @@ public class GuestDao {
 		String user="scott";
 		String password="tiger";
 		
+		//String updateSQL = "update member set"
+											 
 		
 		
 	}
 	
 	
-	public void delete() throws Exception {
+	public void delete(Guest newGuest) throws Exception {
+		
+		String driverClass = "oracle.jdbc.OracleDriver";
+		String url="jdbc:oracle:thin:@localhost:1521:xe";
+		String user="scott";
+		String password="tiger";
+		
 		
 	}
 	
