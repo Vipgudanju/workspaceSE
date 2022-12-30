@@ -6,7 +6,6 @@ public class GuestDaoTestMain {
 
 	public static void main(String[] args)throws Exception {
 				
-		GuestDao guestDao=new GuestDao();
 		System.out.println("1.insert");
 		System.out.println("2.delete");
 		System.out.println("3.updatet");

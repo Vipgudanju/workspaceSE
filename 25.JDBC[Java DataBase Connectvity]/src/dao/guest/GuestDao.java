@@ -17,20 +17,7 @@ public class GuestDao {
 		String user="scott";
 		String password="tiger";
 		
-		String insertSQL = "insert into Guest(guest_no, guest_name, guest_date, guest_email, guest_homepage, guest_title, guest_content) values"
-											 + "(" +newGuest.getGuest_no() +"',"
-											 + "'" + newGuest.getGuest_name() +"',"
-											 + "'" + newGuest.getGuest_date() +"',"
-											 + "'" + newGuest.getGuest_email() +"',"
-											 + "'" + newGuest.getGuest_homepage() +"',"
-											 + "'" + newGuest.getGuest_title() +"',"
-											 + "'" + newGuest.getGuest_content()+"')";
-		Class.forName(driverClass);
-		Connection con = DriverManager.getConnection(url, user, password);
-		Statement stmt = con.createStatement();
-		int rowCount = stmt.executeUpdate(insertSQL);
-		stmt.close();
-		con.close();
+		
 		
 	}
 	
@@ -38,12 +25,9 @@ public class GuestDao {
 	public void update(Guest newGuest) throws Exception {
 		
 		String driverClass = "oracle.jdbc.OracleDriver";
-		String url="jdbc:oracle:thin:@localhost:1521:xe";
-		String user="scott";
-		String password="tiger";
-		
-		//String updateSQL = "update member set"
-											 
+		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
+		String user="jdeveloper11";
+		String password="jdeveloper11";
 		
 		
 	}
