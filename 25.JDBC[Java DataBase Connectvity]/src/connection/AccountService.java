@@ -9,7 +9,7 @@ import dao.common.DataSource;
 public class AccountService {
 	
 	private DataSource dataSource;
-	public AccountService() {
+	public AccountService() throws Exception{
 		dataSource = new DataSource();
 	}
 	/*
