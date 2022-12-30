@@ -80,11 +80,11 @@ public class ResultSetMain {
 		
 		while(rs.next()) {
 			String noStr  = rs.getString("no");
-			String nameStr  = rs.getString("name");
+			String name  = rs.getString("name");
 			String short_desc  = rs.getString("short_desc");
 			String priceStr  = rs.getString("price");
 			String ipgo_dateStr  = rs.getString("ipgo_date");
-			System.out.println(noStr + "\t" + nameStr +"\t" + short_desc + "\t" + priceStr + "\t" + ipgo_dateStr);
+			System.out.println(noStr + "\t" + name +"\t" + short_desc + "\t" + priceStr + "\t" + ipgo_dateStr);
 		}
 		
 		rs.close();
