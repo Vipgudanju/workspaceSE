@@ -44,7 +44,7 @@
             <type>2</type>
           </columnType>
           <size>10</size>
-          <notNull>true</notNull>
+          <notNull>false</notNull>
           <primaryKey>true</primaryKey>
           <description></description>
           <autoIncrement>false</autoIncrement>
@@ -80,7 +80,7 @@
           <primaryKey>false</primaryKey>
           <description></description>
           <autoIncrement>false</autoIncrement>
-          <defaultValue></defaultValue>
+          <defaultValue>sysdate</defaultValue>
         </net.java.amateras.db.visual.model.ColumnModel>
         <net.java.amateras.db.visual.model.ColumnModel>
           <columnName>guest_email</columnName>
