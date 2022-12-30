@@ -1,7 +1,9 @@
 package dao.guest;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 /*
@@ -11,11 +13,19 @@ import java.sql.Statement;
  */
 public class GuestDao {
 	
-	public void insert(Guest newGuest) throws Exception {
+	public void insert(Guest ng) throws Exception {
 		String driverClass = "oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
 		String user="scott";
 		String password="tiger";
+		
+		String insert = "insert into guest values(guest_guest_no_sql.nextval, ? , ? , ? , ? , ? , ?)";
+		Class.forName(driverClass);
+		Connection con = DriverManager.getConnection(url, user, password);
+		PreparedStatement pstmt = con.prepareStatement(insert);
+		
+		String guest_name = ng.getGuest_name();
+		//String guest_date = new Date();
 		
 		
 		
