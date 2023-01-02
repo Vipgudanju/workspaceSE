@@ -24,6 +24,14 @@ public class MemberDao {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(MemberSQL.MEMBER_INSERT);
 		
+		pstmt.setString(1, member.getM_id());
+		pstmt.setString(2, member.getM_pssword());
+		pstmt.setString(3, member.getM_name());
+		pstmt.setString(4, member.getM_address());
+		pstmt.setInt(5, member.getM_age());
+		pstmt.setString(6, member.getM_married());
+		//pstmt.setDate(7, member.getM_age());
+		//pstmt.setDate(7, member.getM_regdate());
 		
 	}
 
