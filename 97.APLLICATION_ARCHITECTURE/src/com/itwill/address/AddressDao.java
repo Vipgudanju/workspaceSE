@@ -1,12 +1,12 @@
-package dao.address;
+package com.itwill.address;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.itwill.common.DataSource;
 
 /*
  * Dao(Data Access Object) 클래스
@@ -20,7 +20,7 @@ public class AddressDao {
 	 */
 	private DataSource dataSource;
 
-	public AddressDao() {
+	public AddressDao() throws Exception{
 		/*
 		 * dataSource멤버필드 초기화
 		 */
