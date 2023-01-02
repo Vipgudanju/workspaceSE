@@ -62,7 +62,7 @@ public class GuestDao {
 		pstmt.setString(3, guest.getGuest_homepage());
 		pstmt.setString(4, guest.getGuest_title());
 		pstmt.setString(5, guest.getGuest_content());
-		pstmt.setInt(5, guest.getGuest_no());
+		pstmt.setInt(6, guest.getGuest_no());
 		int rowCount = pstmt.executeUpdate();
 		pstmt.close();
 		dataSource.close(con);
@@ -75,7 +75,7 @@ public class GuestDao {
 		/*
 		 * 파라메타셋팅
 		 */
-		
+		pstmt.setInt(1, guest_no);
 		ResultSet rs=pstmt.executeQuery();
 		if(rs.next()) {
 			findGuest=
@@ -91,13 +91,12 @@ public class GuestDao {
 		return findGuest;
 	}
 	public List<Guest> findAll() throws Exception{
-		List<Guest> guestList = new ArrayList<Guest>();
+		List<Guest> guestList=new ArrayList<Guest>();
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt=con.prepareStatement(GuestSQL.GUEST_SELECT_ALL);
 		/*
 		 * 파라메타셋팅
 		 */
-		
 		ResultSet rs=pstmt.executeQuery();
 		while(rs.next()) {
 			Guest guest=
@@ -111,7 +110,7 @@ public class GuestDao {
 			guestList.add(guest);
 		}
 		
-		return null;
+		return guestList;
 	}
 	public List<Guest> findByGuestName(String name) throws Exception{
 		List<Guest> guestList=new ArrayList<Guest>();
@@ -139,5 +138,16 @@ public class GuestDao {
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
 
 

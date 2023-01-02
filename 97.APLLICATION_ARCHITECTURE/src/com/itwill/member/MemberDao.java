@@ -13,16 +13,16 @@ import java.util.ArrayList;
  */
 public class MemberDao {
 
-	public MemberDao() {
-
+	public MemberDao() throws Exception{
+		
 	}
 
-	public void insert() throws Exception {
-
+	public void insert(Member member) throws Exception {
+		
 	}
 
-	public void update() throws Exception {
-
+	public void update(Member member) throws Exception {
+		
 	}
 
 	public void delete() throws Exception {
