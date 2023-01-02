@@ -32,6 +32,11 @@ select *
 from guest
 where guest_name = '박하나';
 
+--name select
+select *
+from guest 
+where guest_name = '장원영';
+
 select* from guest where guest_no=2;
 select * from guest;
 
