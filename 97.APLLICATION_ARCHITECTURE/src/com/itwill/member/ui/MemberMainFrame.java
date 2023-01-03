@@ -81,6 +81,63 @@ public class MemberMainFrame extends JFrame {
 		memberTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(memberTabbedPane, BorderLayout.CENTER);
 		
+		JPanel memberLoginPanel = new JPanel();
+		memberLoginPanel.setBackground(Color.PINK);
+		memberTabbedPane.addTab("회원로그인", null, memberLoginPanel, null);
+		memberLoginPanel.setLayout(null);
+		
+		JLabel passwordLB = new JLabel("아이디");
+		passwordLB.setBounds(36, 111, 57, 15);
+		memberLoginPanel.add(passwordLB);
+		
+		JLabel lblNewLabel_6 = new JLabel("패쓰워드");
+		lblNewLabel_6.setBounds(36, 173, 57, 15);
+		memberLoginPanel.add(lblNewLabel_6);
+		
+		loginIdTF = new JTextField();
+		loginIdTF.setBounds(136, 108, 116, 21);
+		memberLoginPanel.add(loginIdTF);
+		loginIdTF.setColumns(10);
+		
+		loginPassTF = new JPasswordField();
+		loginPassTF.setBounds(136, 170, 116, 21);
+		memberLoginPanel.add(loginPassTF);
+		
+		JButton loginBtn = new JButton("로그인");
+		loginBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				/***********회원로그인************/
+				try {
+					String id = loginIdTF.getText();
+					String pass=new String(loginPassTF.getPassword());
+					
+					int result = memberService.login(id, pass);
+					if(result==0) {
+						// 로그인 성공
+						loginProcess(id);
+						
+						
+					}else {
+						JOptionPane.showMessageDialog(null, "아이디또는 비밀번호를 확인하세요");
+						loginIdTF.setSelectionStart(0);
+						loginIdTF.setSelectionEnd(id.length());
+						loginIdTF.requestFocus();
+					}
+					
+					
+					
+				}catch (Exception e1) {
+					// TODO: handle exception
+				}
+			}
+		});
+		loginBtn.setBounds(38, 232, 97, 23);
+		memberLoginPanel.add(loginBtn);
+		
+		JButton cancleBtn = new JButton("취소");
+		cancleBtn.setBounds(155, 232, 97, 23);
+		memberLoginPanel.add(cancleBtn);
+		
 		JPanel memberJoinPanel = new JPanel();
 		memberJoinPanel.setBackground(SystemColor.activeCaption);
 		memberTabbedPane.addTab("회원가입", null, memberJoinPanel, null);
@@ -192,63 +249,6 @@ public class MemberMainFrame extends JFrame {
 		idMsgLB.setBounds(131, 88, 116, 15);
 		memberJoinPanel.add(idMsgLB);
 		
-		JPanel memberLoginPanel = new JPanel();
-		memberLoginPanel.setBackground(Color.PINK);
-		memberTabbedPane.addTab("회원로그인", null, memberLoginPanel, null);
-		memberLoginPanel.setLayout(null);
-		
-		JLabel passwordLB = new JLabel("아이디");
-		passwordLB.setBounds(36, 111, 57, 15);
-		memberLoginPanel.add(passwordLB);
-		
-		JLabel lblNewLabel_6 = new JLabel("패쓰워드");
-		lblNewLabel_6.setBounds(36, 173, 57, 15);
-		memberLoginPanel.add(lblNewLabel_6);
-		
-		loginIdTF = new JTextField();
-		loginIdTF.setBounds(136, 108, 116, 21);
-		memberLoginPanel.add(loginIdTF);
-		loginIdTF.setColumns(10);
-		
-		loginPassTF = new JPasswordField();
-		loginPassTF.setBounds(136, 170, 116, 21);
-		memberLoginPanel.add(loginPassTF);
-		
-		JButton loginBtn = new JButton("로그인");
-		loginBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				/***********회원로그인************/
-				try {
-					String id = loginIdTF.getText();
-					String pass=new String(loginPassTF.getPassword());
-					
-					int result = memberService.login(id, pass);
-					if(result==0) {
-						// 로그인 성공
-						loginProcess(id);
-						
-						
-					}else {
-						JOptionPane.showMessageDialog(null, "아이디또는 비밀번호를 확인하세요");
-						loginIdTF.setSelectionStart(0);
-						loginIdTF.setSelectionEnd(id.length());
-						loginIdTF.requestFocus();
-					}
-					
-					
-					
-				}catch (Exception e1) {
-					// TODO: handle exception
-				}
-			}
-		});
-		loginBtn.setBounds(38, 232, 97, 23);
-		memberLoginPanel.add(loginBtn);
-		
-		JButton cancleBtn = new JButton("취소");
-		cancleBtn.setBounds(155, 232, 97, 23);
-		memberLoginPanel.add(cancleBtn);
-		
 		JPanel memberInfoPanel = new JPanel();
 		memberInfoPanel.setBackground(new Color(128, 255, 128));
 		memberTabbedPane.addTab("회원정보", null, memberInfoPanel, null);
@@ -335,6 +335,15 @@ public class MemberMainFrame extends JFrame {
 		
 		// 4.회원정보보기화면전환
 		memberTabbedPane.setSelectedIndex(2);
+		
+		/***** 회원상세 데이터 보여주기 *****/
+		infoIdTF.setText(loginMember.getM_id());
+		infoPassTF.setText(loginMember.getM_password());
+		infoNameTF.setText(loginMember.getM_name());
+		infoAddressTF.setText(loginMember.getM_address());
+		
+		
+		
 	}
 	
 	
