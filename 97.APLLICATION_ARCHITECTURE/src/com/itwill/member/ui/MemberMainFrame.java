@@ -22,6 +22,10 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JSeparator;
 
 public class MemberMainFrame extends JFrame {
 	/*********1.MemberService멤버필드선언*****/
@@ -72,6 +76,27 @@ public class MemberMainFrame extends JFrame {
 		setTitle("회원관리");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 327, 561);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu memberMenu = new JMenu("회원");
+		menuBar.add(memberMenu);
+		
+		JMenuItem loginMenuItem = new JMenuItem("로그인");
+		memberMenu.add(loginMenuItem);
+		
+		JMenuItem joinMenuItem = new JMenuItem("가입");
+		memberMenu.add(joinMenuItem);
+		
+		JMenu logoutMenuItem = new JMenu("로그아웃");
+		memberMenu.add(logoutMenuItem);
+		
+		JSeparator separator = new JSeparator();
+		memberMenu.add(separator);
+		
+		JMenu exitMenuItem = new JMenu("종료");
+		memberMenu.add(exitMenuItem);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -254,7 +279,7 @@ public class MemberMainFrame extends JFrame {
 		memberJoinPanel.add(idMsgLB);
 		
 		JPanel memberInfoPanel = new JPanel();
-		memberInfoPanel.setBackground(Color.LIGHT_GRAY);
+		memberInfoPanel.setBackground(new Color(128, 255, 128));
 		memberTabbedPane.addTab("회원정보", null, memberInfoPanel, null);
 		memberInfoPanel.setLayout(null);
 		
@@ -347,5 +372,4 @@ public class MemberMainFrame extends JFrame {
 		
 		
 	}
-	
 }
