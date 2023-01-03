@@ -24,14 +24,14 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 
 public class MemberMainFrame extends JFrame {
-	/*********1.MemberService멤버필드선언*********/
+	/*********1.MemberService멤버필드선언*****/
 	private MemberService memberService;
 	/*
 	ProductService productService;
 	....
 	*/
-	/********** 로그인한 회원 ****************/
-	Member loginMember = null;
+	/*************로그인한회원****************/
+	private Member loginMember=null;
 	
 	private JPanel contentPane;
 	private JTextField idTF;
@@ -113,9 +113,8 @@ public class MemberMainFrame extends JFrame {
 					
 					int result = memberService.login(id, pass);
 					if(result==0) {
-						// 로그인 성공
+						//로그인성공
 						loginProcess(id);
-						
 						
 					}else {
 						JOptionPane.showMessageDialog(null, "아이디또는 비밀번호를 확인하세요");
@@ -134,9 +133,14 @@ public class MemberMainFrame extends JFrame {
 		loginBtn.setBounds(38, 232, 97, 23);
 		memberLoginPanel.add(loginBtn);
 		
-		JButton cancleBtn = new JButton("가입");
-		cancleBtn.setBounds(155, 232, 97, 23);
-		memberLoginPanel.add(cancleBtn);
+		JButton joinBtn = new JButton("회원가입");
+		joinBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				memberTabbedPane.setSelectedIndex(1);
+			}
+		});
+		joinBtn.setBounds(155, 232, 97, 23);
+		memberLoginPanel.add(joinBtn);
 		
 		JPanel memberJoinPanel = new JPanel();
 		memberJoinPanel.setBackground(SystemColor.activeCaption);
@@ -152,7 +156,7 @@ public class MemberMainFrame extends JFrame {
 		memberJoinPanel.add(idTF);
 		idTF.setColumns(10);
 		
-		JLabel 패쓰워드 = new JLabel("패스워드");
+		JLabel 패쓰워드 = new JLabel("패쓰워드");
 		패쓰워드.setBounds(53, 109, 57, 15);
 		memberJoinPanel.add(패쓰워드);
 		
@@ -250,7 +254,7 @@ public class MemberMainFrame extends JFrame {
 		memberJoinPanel.add(idMsgLB);
 		
 		JPanel memberInfoPanel = new JPanel();
-		memberInfoPanel.setBackground(new Color(128, 255, 128));
+		memberInfoPanel.setBackground(Color.LIGHT_GRAY);
 		memberTabbedPane.addTab("회원정보", null, memberInfoPanel, null);
 		memberInfoPanel.setLayout(null);
 		
@@ -312,31 +316,29 @@ public class MemberMainFrame extends JFrame {
 		
 		/******2.MemberService멤버필드객체생성*********/
 		memberService=new MemberService();
-		
-		
-	} // 생성자 끝
+	}//생성자끝
+	
+	
 	
 	
 	private void loginProcess(String id) throws Exception{
-		/***** 로그인 성공시 해야할 일 ******
-		 1.로그인 성공한 멤버객체 멤버필드에 저장
-		 2.MemberMainFrame 타이틀 변경
-		 3.로그인, 회원가입탭 비활성화
+		/***********로그인성공시 해야할일***********
+		 1.로그인성공한 멤버객체 멤버필드에저장
+		 2.MemberMainFrame타이틀변경
+		 3.로그인,회원가입탭 불활성화
 		 4.회원정보보기 화면전환
-		************************************/
-		// 1. 로그인 성공한 멤버객체 멤버필드에 저장
+		********************************************/
+		//1.로그인성공한 멤버객체 멤버필드에저장
 		this.loginMember = memberService.memberDetail(id);
-		// 2. MemberMainFrame 타이틀변경
-		setTitle(id+ "님 로그인");
-		
-		// 3.로그인화면,회원가입화면 비활성화
+		//2.MemberMainFrame타이틀변경
+		setTitle(id+" 님 로그인");
+		// 3.로그인,회원가입탭 불활성화
 		memberTabbedPane.setEnabledAt(0, false);
 		memberTabbedPane.setEnabledAt(1, false);
-		
-		// 4.회원정보보기화면전환
+		// 4.회원정보보기 화면전환
 		memberTabbedPane.setSelectedIndex(2);
 		
-		/***** 회원상세 데이터 보여주기 *****/
+		/****회원상세데이타보여주기*****/
 		infoIdTF.setText(loginMember.getM_id());
 		infoPassTF.setText(loginMember.getM_password());
 		infoNameTF.setText(loginMember.getM_name());
@@ -345,6 +347,5 @@ public class MemberMainFrame extends JFrame {
 		
 		
 	}
-	
 	
 }
