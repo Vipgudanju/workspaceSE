@@ -134,7 +134,7 @@ public class MemberMainFrame extends JFrame {
 		loginBtn.setBounds(38, 232, 97, 23);
 		memberLoginPanel.add(loginBtn);
 		
-		JButton cancleBtn = new JButton("취소");
+		JButton cancleBtn = new JButton("가입");
 		cancleBtn.setBounds(155, 232, 97, 23);
 		memberLoginPanel.add(cancleBtn);
 		
