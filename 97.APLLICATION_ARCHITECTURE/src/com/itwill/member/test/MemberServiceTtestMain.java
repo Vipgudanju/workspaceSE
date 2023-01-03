@@ -24,6 +24,18 @@ public class MemberServiceTtestMain {
 		}else {
 			JOptionPane.showMessageDialog(null, "중복된아이디입니다.");
 		}
+		
+		System.out.println("2.login");
+		System.out.println(">>>" + memberService.login("bbbb", "bbbb"));
+		System.out.println(">>>" + memberService.login("bbbb", "dfds"));
+		System.out.println(">>>" + memberService.login("pppp", "2323"));
+		System.out.println();
+		System.out.println("3.duplicateId:");
+		System.out.println(">>>" +memberService.isDuplicateId("aaaa"));
+		System.out.println(">>>" +memberService.isDuplicateId("bbbb"));
+		
+		
+		
 	}
 
 }
