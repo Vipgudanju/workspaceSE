@@ -36,3 +36,17 @@ select count(*) cnt from cart where userid = 'guard1' and p_no = 8;
 -- 로그인한 멤버(guard1)의 카트에 담기(수정)
 update cart set cart_qty = cart_qty + 1 where userid = 'guard1' and p_no = 1;
 
+
+/********************* order ***********************/
+-- 1. 멤버한사람의 주문전체목록(guard1)
+select * from orders where userid = 'guard1';
+
+-- 1. 멤버한사람의 주문(주문아이템+제품) 전체목록(guard1)
+select * 
+    from orders o 
+    join order_item oi 
+    on o.o_no = oi.o_no 
+    join product p
+    on oi.p_no = p.p_no
+where userid = 'guard1';
+

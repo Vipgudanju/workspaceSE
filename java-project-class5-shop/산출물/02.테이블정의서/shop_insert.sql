@@ -34,6 +34,9 @@ guard1님이
 insert into orders(o_no, o_desc, o_date, o_price, userid)
     values(orders_o_no_SEQ.nextval, '비글외1마리', sysdate, 1550000, 'guard1');
     
+insert into orders(o_no, o_desc, o_date, o_price, userid)
+    values(orders_o_no_SEQ.nextval, '퍼그외6마리', sysdate, 980000, 'guard1');
+    
 -- 2. order_item insert
 -- 제품번호 1번 1마리
 insert into order_item(oi_no, oi_qty, o_no, p_no)
