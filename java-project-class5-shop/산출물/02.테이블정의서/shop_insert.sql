@@ -23,3 +23,39 @@ insert into cart(cart_no, cart_qty, userid, p_no) values(cart_cart_no_SEQ.nextva
 insert into cart(cart_no, cart_qty, userid, p_no) values(cart_cart_no_SEQ.nextval, 3, 'guard2', 2);
 insert into cart(cart_no, cart_qty, userid, p_no) values(cart_cart_no_SEQ.nextval, 3, 'guard2', 2);
 
+
+/************************** order insert ************************/
+/* 
+guard1님이
+    제품번호 1번 1마리
+    제품번호 2번 2마리 제품을 주문
+*/
+-- 1.orders insert
+insert into orders(o_no, o_desc, o_date, o_price, userid)
+    values(orders_o_no_SEQ.nextval, '비글외1마리', sysdate, 1550000, 'guard1');
+    
+-- 2. order_item insert
+-- 제품번호 1번 1마리
+insert into order_item(oi_no, oi_qty, o_no, p_no)
+    values(order_item_oi_no_SEQ.nextval, 1, orders_o_no_SEQ.currval, 1);
+-- 제품번호 2번 2마리
+insert into order_item(oi_no, oi_qty, o_no, p_no)
+    values(order_item_oi_no_SEQ.nextval, 2, orders_o_no_SEQ.currval, 2);
+
+
+/* 
+guard1님이
+    제품번호 3번 3마리
+    제품번호 4번 4마리 제품을 주문
+*/
+-- 제품번호 3번 3마리
+insert into order_item(oi_no, oi_qty, o_no, p_no)
+    values(order_item_oi_no_SEQ.nextval, 3, orders_o_no_SEQ.currval, 3);
+-- 제품번호 4번 4마리
+insert into order_item(oi_no, oi_qty, o_no, p_no)
+    values(order_item_oi_no_SEQ.nextval, 4, orders_o_no_SEQ.currval, 4);
+
+
+
+
+
