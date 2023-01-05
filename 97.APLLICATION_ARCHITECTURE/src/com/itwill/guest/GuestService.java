@@ -6,7 +6,7 @@ import java.util.List;
  * - GUI객체(스윙,서블릿,JSP)에서 직접접근(메쏘드호출)하는클래스
  * - GuestDao객체를 이용해서 데이타베이스에 접근하는클래스
  */
-
+// 작성해보기
 public class GuestService{
 		private GuestDao guestDao;
 		public GuestService() throws Exception{
@@ -16,43 +16,49 @@ public class GuestService{
 		/*
 		 * 방명록쓰기
 		 */
-		public int guestWrite(Guest newGuest) 
+		public int guestWrite(Guest guest) 
 				throws Exception{
 			/*
 			<< GuestDao객체사용>>
 			*/
-			return 0;
+			return guestDao.insert(guest);
 		}
-		
 		/*
 		 * 방명록번호로 1개보기
 		 */
 		public Guest guestDetail(int guest_no) throws Exception{
-			return null;
+			return guestDao.findByPrimaryKey(guest_no);
 		}
-		
 		/*
 		 * 방명록번호로삭제
 		 */
 		public int guestDelete(int guest_no) 
 				throws Exception{
-			return 0;
+			return guestDao.delete(guest_no);
 		}
-		
 		/*
 		 * 방명록 리스트보기
 		 */
 		public List<Guest> guestList()throws Exception {
-			return null;
+			return guestDao.findAll();
+		}
+		/*
+		 * 방명록 이름으로검색해서 리스트보기
+		 */
+		
+		public List<Guest> findByGuestName(String guest_name) throws Exception{
+			return guestDao.findByGuestName(guest_name);
 		}
 		
 		/*
-		 * 방명록 이름으로 검색해서 리스트 보기
+		 * 방명록 수정
 		 */
-		
-		public List<Guest> findByGuestName(String guest_name){
-			return null;
+		public int guestUpdate(Guest guest) throws Exception{
+			return guestDao.update(guest);
 		}
+		
+		
+		
 		
 		
 	}
