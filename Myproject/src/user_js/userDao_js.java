@@ -60,7 +60,7 @@ public class userDao_js {
 		user_js finduser_js = null;
 		if(rs.next()) {
 			finduser_js = new user_js (
-					rs.getString("user.id"),
+					rs.getString("user_id"),
 					rs.getString("user_pw"),
 					rs.getString("user_name"),
 					rs.getString("user_phone"),
@@ -77,7 +77,7 @@ public class userDao_js {
 		ArrayList<user_js> userList = new ArrayList<user_js>();
 		while(rs.next()) {
 			userList.add(new user_js (
-					rs.getString("user.id"),
+					rs.getString("user_id"),
 					rs.getString("user_pw"),
 					rs.getString("user_name"),
 					rs.getString("user_phone"),
