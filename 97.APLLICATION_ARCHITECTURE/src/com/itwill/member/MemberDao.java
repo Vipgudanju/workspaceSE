@@ -95,19 +95,3 @@ public class MemberDao {
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
