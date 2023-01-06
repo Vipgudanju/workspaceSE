@@ -1,4 +1,4 @@
-package common;
+package com.itwill.shop.common;
 
 import java.io.InputStream;
 import java.sql.Connection;
