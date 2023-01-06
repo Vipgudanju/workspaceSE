@@ -87,7 +87,5 @@ public class user_js {
 				+ user_phone + ", user_address=" + user_address + ", user_email=" + user_email + "]";
 	}
 	
-	
-	
 
 }
