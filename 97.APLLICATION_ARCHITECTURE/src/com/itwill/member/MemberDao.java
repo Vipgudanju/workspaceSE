@@ -94,20 +94,3 @@ public class MemberDao {
 		return memberList;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
