@@ -3,73 +3,66 @@ package user_js;
 
 public class userService_js {
 	private userDao_js userDao;
-	public userService_js() throws Exception{
-		userDao=new userDao_js();
+	
+	public userService_js() throws Exception {
+		userDao = new userDao_js();
 	}
 	
-	// 회원가입
-	public int create(user_js user) throws Exception{
-		//1.아이디중복체크
-		if(userDao.countByUserId(user.getUser_id())>=1) {
-			//중복
-			return -1;
-	}else {
-		// 가입
-		int rowCount = userDao.insert(user);
-		return rowCount;
-	}
-	
- }
-	
-	// 회원로그인
-	public int login(String user_id, String user_pw) throws Exception {
-		// 0:실패, 1:성공
-		int result=0;
-		if(userDao.countByUserId(user_id)==1) {
-			//아이디존재하는경우
-			user_js loginUser = userDao.findByPrimaryKey(user_id);
-			if(loginUser.getUser_pw().equals(user_pw)) {
-				//패스워드일치
-				result=1;
-			}else {
-				//패스워드불일치
-				result=0;
-			}
+	// 회원가입(아이디가 중복되는 경우에 메세지 뜸)
+	public boolean adduser_js(user_js user) throws Exception {
+		boolean isSuccess = false;
+			// 아이디 존재여부체크(존재하면 메세지, 존재 안하면 가입)
+		if(userDao.findByPrimaryKey(user.getUser_id()) == null) {
+			int rowCount = userDao.insert(user);
+			isSuccess = true;
 		}else {
-			//회원이아닌경우
-			result=0;
+			isSuccess = false;
 		}
-		return result;
-	}
-
-	
-	// 회원로그아웃
-	public void logout() {
-		// 로그아웃시 db작업이 필요하면 기술
+		return isSuccess;
 	}
 	
-	// 로그인한 회원의 정보보기
-	public user_js findUser(String user_id) throws Exception {
+	// 회원 로그인
+	public int login(String user_id, String user_pw) throws Exception {
+		// 0:성공, 1:아이디 존재x, 2:패스워드 불일치
+		int loginResult = -999;
+		user_js finduser_js = userDao.findByPrimaryKey(user_id);
+		if(finduser_js == null) {
+			loginResult = 1;
+		} else {
+			// 아이디 존재
+			if(user_pw.equals(finduser_js.getUser_pw())) {
+				// 패스워드 일치
+				loginResult = 0;
+			}else {
+				// 패스워드 불일치
+				loginResult = 2;
+			}
+		}
+		return loginResult;
+	}
+	
+	
+	// 회원아이디 중복체크
+	public  boolean isDuplicateId(String user_id)throws Exception {
+		user_js finduser_js=userDao.findByPrimaryKey(user_id);
+		if(finduser_js == null) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
+	
+	// 회원 상세히 보기
+	public user_js memberDetail(String user_id) throws Exception{
 		return userDao.findByPrimaryKey(user_id);
 	}
 	
-	// 회원 수정
-	public int update(user_js user)throws Exception{
+	// 회원아이디 수정
+	public int user_jsUpdate(user_js user) throws Exception {
 		return userDao.update(user);
 	}
 	
-	// 아이디 중복체크
-	public boolean isDuplicateId(String userId) throws Exception{
-		if(userDao.countByUserId(userId)>=1) {
-			return true;
-		}else {
-			return false;
-		}
-	}
 	
-	// 회원탈퇴
-	public int remove(String userId) throws Exception{
-		return userDao.delete(userId);
-	}
 	
 }
