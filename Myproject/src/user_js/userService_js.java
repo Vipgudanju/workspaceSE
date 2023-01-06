@@ -29,10 +29,10 @@ public class userService_js {
 			//아이디존재하는경우
 			user_js loginUser = userDao.findByPrimaryKey(user_id);
 			if(loginUser.getUser_pw().equals(user_pw)) {
-				//패쓰워드일치
+				//패스워드일치
 				result=1;
 			}else {
-				//패쓰워드불일치
+				//패스워드불일치
 				result=0;
 			}
 		}else {
@@ -49,8 +49,8 @@ public class userService_js {
 	}
 	
 	// 로그인한 회원의 정보보기
-	public user_js findUser(String userId) throws Exception {
-		return userDao_js.findByPrimaryKey(user_id);
+	public user_js findUser(String user_id) throws Exception {
+		return userDao.findByPrimaryKey(user_id);
 	}
 	
 	// 회원 수정
