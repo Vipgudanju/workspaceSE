@@ -66,4 +66,10 @@ delete from orders where o_no=1;
 
 --4. 로그인한멤버(guard1)주문전체삭제
 delete from orders where userid='guard1';
-delete from orders
+delete from orders;
+
+desc cart;
+desc orders;
+desc order_item;
+
+
