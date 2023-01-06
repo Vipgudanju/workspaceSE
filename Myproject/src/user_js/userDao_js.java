@@ -16,7 +16,7 @@ public class userDao_js {
 	
 	public int insert(user_js newUser) throws Exception{
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(userSQL_js.MEMBER_INSERT);
+		PreparedStatement pstmt = con.prepareStatement(userSQL_js.USER_JS_INSERT);
 		pstmt.setString(1, newUser.getUser_id());
 		pstmt.setString(2, newUser.getUser_pw());
 		pstmt.setString(3, newUser.getUser_name());
@@ -30,7 +30,7 @@ public class userDao_js {
 	
 	public int update(user_js updateUser) throws Exception{
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(userSQL_js.MEMBER_UPDATE);
+		PreparedStatement pstmt = con.prepareStatement(userSQL_js.USER_JS_UPDATE);
 		pstmt.setString(1, updateUser.getUser_pw());
 		pstmt.setString(2, updateUser.getUser_name());
 		pstmt.setString(3, updateUser.getUser_phone());
@@ -44,7 +44,7 @@ public class userDao_js {
 	
 	public int delete(String user_id) throws Exception {
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(userSQL_js.MEMBER_DELETE);
+		PreparedStatement pstmt = con.prepareStatement(userSQL_js.USER_JS_DELETE);
 		pstmt.setString(1, user_id);
 		
 		int deleteRowCount = pstmt.executeUpdate();
@@ -53,7 +53,7 @@ public class userDao_js {
 	
 	public user_js findByPrimaryKey(String user_id) throws Exception {
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(userSQL_js.MEMBER_SELECT_BY_ID);
+		PreparedStatement pstmt = con.prepareStatement(userSQL_js.USER_JS_SELECT_BY_ID);
 		pstmt.setString(1, user_id);
 		ResultSet rs = pstmt.executeQuery();
 		
@@ -72,7 +72,7 @@ public class userDao_js {
 	
 	public ArrayList<user_js> findAll() throws Exception {
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(userSQL_js.MEMBER_SELECT_ALL);
+		PreparedStatement pstmt = con.prepareStatement(userSQL_js.USER_JS_SELECT_ALL);
 		ResultSet rs = pstmt.executeQuery();
 		ArrayList<user_js> userList = new ArrayList<user_js>();
 		while(rs.next()) {
