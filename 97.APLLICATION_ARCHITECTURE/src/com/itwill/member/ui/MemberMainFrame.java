@@ -79,8 +79,8 @@ public class MemberMainFrame extends JFrame {
 	private JButton updateBtn;
 	private JTable memberListTB;
 	private JButton memberDeleteBtn;
-	private JComboBox memberListCB;
 	private JList memberListLT;
+	private JComboBox memberListCB;
 
 	/**
 	 * Launch the application.
@@ -603,18 +603,17 @@ public class MemberMainFrame extends JFrame {
 			memberDeleteBtn.setEnabled(false);	
 			
 			/***************회원리스트보기[JList]****************/
-			DefaultListModel listModel = new DefaultListModel();
-			for(Member member: memberList) {
+			DefaultListModel listModel=new DefaultListModel();
+			for(Member member:memberList) {
 				listModel.addElement(member.getM_id());
 			}
-			
 			memberListLT.setModel(listModel);
 			/***************회원리스트보기[JCombobox]************/
-			DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
-			memberListCB.setModel(comboBoxModel);
-			for(Member member : memberList) {
-				comboBoxModel.addElement(member.getM_name()+ "[member.getM_id()+]");
+			DefaultComboBoxModel  comboBoxModel=new DefaultComboBoxModel();
+			for (Member member : memberList) {
+				comboBoxModel.addElement(member.getM_name()+"["+member.getM_id()+"]");
 			}
+			memberListCB.setModel(comboBoxModel);
 			
 			
 		}catch(Exception e1) {
