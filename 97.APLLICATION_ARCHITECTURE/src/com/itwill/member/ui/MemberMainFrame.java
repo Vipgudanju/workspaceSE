@@ -195,7 +195,7 @@ public class MemberMainFrame extends JFrame {
 		passwordLB.setBounds(36, 111, 57, 15);
 		memberLoginPanel.add(passwordLB);
 		
-		JLabel lblNewLabel_6 = new JLabel("패쓰워드");
+		JLabel lblNewLabel_6 = new JLabel("패스워드");
 		lblNewLabel_6.setBounds(36, 173, 57, 15);
 		memberLoginPanel.add(lblNewLabel_6);
 		
@@ -262,7 +262,7 @@ public class MemberMainFrame extends JFrame {
 		memberJoinPanel.add(idTF);
 		idTF.setColumns(10);
 		
-		JLabel 패쓰워드 = new JLabel("패쓰워드");
+		JLabel 패쓰워드 = new JLabel("패스워드");
 		패쓰워드.setBounds(53, 109, 57, 15);
 		memberJoinPanel.add(패쓰워드);
 		
@@ -310,7 +310,7 @@ public class MemberMainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				/*********** 회원가입 ************/
 				try {
-					/******TextField로 부터 데이타얻기*****/
+					/******TextField로 부터 데이터얻기*****/
 					String id = idTF.getText();
 					String password=new String(passTF.getPassword());
 					String name=nameTF.getText();
@@ -374,7 +374,7 @@ public class MemberMainFrame extends JFrame {
 		infoIdTF.setBounds(123, 45, 116, 21);
 		memberInfoPanel.add(infoIdTF);
 		
-		JLabel 패쓰워드_1 = new JLabel("패쓰워드");
+		JLabel 패쓰워드_1 = new JLabel("패스워드");
 		패쓰워드_1.setBounds(45, 97, 57, 15);
 		memberInfoPanel.add(패쓰워드_1);
 		
